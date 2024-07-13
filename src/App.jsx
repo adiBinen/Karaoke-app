@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import TranscriptSelector from './components/transcript-selector/TranscriptSelector';
 import TranscriptDisplay from './components/transcript-display/TranscriptDisplay';
 import VideoPlayer from './components/video-player/VideoPlayer';
-import { getTranscriptById, getRandomTranscript } from './services/transcript.service';
+import { getTranscriptById, getRandomTranscript, getTranscripts } from './services/transcript.service';
 import './App.scss';
-// import {useThrottle} from "./hooks/useThrottle";
 
 const App = () => {
+  const [transcripts, setTranscripts] = useState([]);
   const [selectedTranscript, setSelectedTranscript] = useState(null);
   const [currentTime, setCurrentTime] = useState(0);
   // const throttleTime = useThrottle(currentTime, 0);
+
+  useEffect(() => {
+    getAllTranscripts();
+  }, []);
 
   const handleSelectTranscript = async (transcript) => {
     try {
@@ -26,23 +30,25 @@ const App = () => {
     }
   };
 
+  const getAllTranscripts = async () => {
+    try {
+      const data = await getTranscripts();
+      setTranscripts(data);
+    } catch (error) {
+      console.error('Error fetching transcripts:', error);
+    }
+  }
+
   const handleTimeUpdate = (newTime) => {
     setCurrentTime(newTime);
   };
-
-  // const currentParagraph = useMemo(() => {
-  //   if(!selectedTranscript) return null;
-  //   return selectedTranscript.paragraphs.find((paragraph) => {
-  //     return paragraph.time <= currentTime && (paragraph.time + paragraph.duration) >= currentTime;
-  //   });
-  // }, [throttleTime, selectedTranscript]);
 
   return (
       <div className='app'>
           <h1>Karaoke App</h1>
 
         <div className='content'>
-          <TranscriptSelector onSelect={handleSelectTranscript} />
+          <TranscriptSelector onSelect={handleSelectTranscript} transcripts={transcripts} />
           {selectedTranscript && (
               <div className='selected-transcript-container'>
                 <VideoPlayer

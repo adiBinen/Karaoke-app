@@ -1,10 +1,8 @@
 import React from 'react';
-import useGetAllTranscripts from '../../hooks/useGetAllTranscripts';
 import './TranscriptSelector.scss';
 import TranscriptButton from "../transcript-button/TranscriptButton";
 
-const TranscriptSelector = ({ onSelect }) => {
-    const { transcripts } = useGetAllTranscripts();
+const TranscriptSelector = ({ onSelect, transcripts }) => {
 
     return (
         <div className='transcript-selector'>
