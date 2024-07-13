@@ -1,0 +1,26 @@
+.transcript-display {
+  height: calc((100vh - 100px)/2);
+  overflow-y: scroll;
+  border-left: 1px solid #ddd;
+  padding: 20px;
+
+  * {
+    display: inline;
+    line-height: 1.7;
+  }
+}
+
+.paragraph-separator {
+  display: block;
+}
+
+.highlighted {
+  font-weight: bold;
+}
+
+@media (min-width: 1200px) {
+  .transcript-display {
+    flex: 1;
+    height: calc(100vh - 100px);
+  }
+}

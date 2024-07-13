@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://verbit-karaoke-assignment.vercel.app/api';

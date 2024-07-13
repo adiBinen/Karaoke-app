@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Karaoke App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Structure
 
-## Available Scripts
+This Karaoke App is a React application.
+The main component, **App**, handles fetching data from the backend and manages the overall state of the application.
+It passes necessary data as props to its child components: **TranscriptSelector**, **VideoPlayer**, and **TranscriptDisplay**.
+The **TranscriptSelector** component lists available transcripts, allowing users to select one,
+which triggers the **App** component to update the state with the corresponding video and transcript data.
+This structure ensures clear separation of concerns and ease of maintenance.
 
-In the project directory, you can run:
+### TranscriptDisplay component
+The TranscriptDisplay component is designed to render a list of words from a transcript,
+ensuring proper formatting by starting new lines for new paragraphs and avoiding spaces before punctuation marks.
 
+## Trade-offs
+**State management**
+   - **Decision:** Centralized state management in the App component.
+   - While this simplifies state management by keeping it all in one place, it can make the App component more complex and harder to maintain as the application scales. An alternative could have been using a state management library like Redux, which would provide more structure but add complexity.
+
+**Error Handling:**
+   - **Decision:** Basic error handling in data fetching.
+   - Simple error handling is easier to implement but may not cover all edge cases or provide the best user experience. More comprehensive error handling would improve robustness but require more code and complexity.
+
+**Testing:**
+- **Decision:** Focused on unit and integration tests using Jest and React Testing Library.
+- Writing tests ensures code reliability and catches bugs early but requires additional time and effort.
+
+## First run
+
+Go to `https://github.com/adiBinen/Karaoke-app` and clone the repository.
+
+Install dependencies and required modules:
+### `npm i`
+
+Run: 
 ### `npm start`
 
-Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

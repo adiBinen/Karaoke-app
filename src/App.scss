@@ -1,0 +1,38 @@
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+
+  h1 {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    height: 100px;
+    font-family: 'Longevity', serif;
+    font-weight: 100;
+    font-size: 3rem;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  height: 100%;
+}
+
+.selected-transcript-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 1200px) {
+  .selected-transcript-container {
+    flex-direction: row;
+  }
+}
