@@ -26,6 +26,11 @@ ensuring proper formatting by starting new lines for new paragraphs and avoiding
 - **Decision:** Focused on unit and integration tests using Jest and React Testing Library.
 - Writing tests ensures code reliability and catches bugs early but requires additional time and effort.
 
+**Lazy Loading Transcripts:**
+- **Decision:** Implemented logic to render the entire transcript.
+- Rendering the whole transcript makes the code simpler and ensures all data is available but can slow down performance with large transcripts. Alternatively, loading only the visible part improves performance but makes the code more complex.
+
+
 ## First run
 
 Go to `https://github.com/adiBinen/Karaoke-app` and clone the repository.
