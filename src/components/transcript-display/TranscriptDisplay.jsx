@@ -23,7 +23,7 @@ const TranscriptDisplay = ({ words, currentTime }) => {
                                 <span className={isHighlighted(currentTime, word) ? 'highlighted' : 'normal'}>
                                     {word.text}
                                 </span>
-                                {!isPunctuation(word) && nextWord && !isPunctuation(nextWord) && ' '}
+                                {nextWord && !isPunctuation(nextWord) && ' '}
                             </React.Fragment>
                         );
                     })}
