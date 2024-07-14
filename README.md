@@ -9,9 +9,19 @@ The **TranscriptSelector** component lists available transcripts, allowing users
 which triggers the **App** component to update the state with the corresponding video and transcript data.
 This structure ensures clear separation of concerns and ease of maintenance.
 
+### App component
+App Component: The main component responsible for managing the overall state and fetching data from the backend. It coordinates data flow and passes necessary props to child components.
+
+### TranscriptSelector component
+Responsible for displaying the list of transcripts and handling user interactions for selecting a transcript.
+
 ### TranscriptDisplay component
 The TranscriptDisplay component is designed to render a list of words from a transcript,
 ensuring proper formatting by starting new lines for new paragraphs and avoiding spaces before punctuation marks.
+
+### VideoPlayer component
+Displays the video corresponding to the selected transcript. It receives the video URL and controls for playback.
+
 
 ## Trade-offs
 **State management**
