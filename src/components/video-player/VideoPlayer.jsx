@@ -23,7 +23,7 @@ const VideoPlayer = ({ url, currentTime, onTimeUpdate }) => {
     }, [url]);
 
     return (
-        <div className='video-wrapper'>
+        <div className={'video-wrapper'}>
             <video ref={videoRef} controls onTimeUpdate={handleTimeUpdate} >
                 <source src={url} type="video/mp4" />
                 Your browser does not support the video tag.

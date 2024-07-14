@@ -5,7 +5,7 @@ import TranscriptButton from "../transcript-button/TranscriptButton";
 const TranscriptSelector = ({ onSelect, transcripts }) => {
 
     return (
-        <div className='transcript-selector'>
+        <div className={'transcript-selector'}>
             <ul>
                 {transcripts?.map((transcript) => (
                     <li key={transcript.id}>
